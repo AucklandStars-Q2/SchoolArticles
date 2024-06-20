@@ -1,7 +1,6 @@
 Superuser:
 Username: AdminAS
 Password: 4l55?W3"nX
-4l55?W3"nX
 
 Admins:
 NicolleAS

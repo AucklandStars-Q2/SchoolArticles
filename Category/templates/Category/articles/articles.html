@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}
+School Article List
+{% endblock %}
+
+{% block content %}
+    <h1>Articles List</h1>
+    <hr>
+    <ul class="list-group">
+    {% for article in object_list %}
+    <li class="list-group-item"><a href="{% url 'articles-details' article.id %}">{{ article.category }} - {{ article.name }}</a></li>
+    {% endfor %}
+    </ul>
+
+{% endblock %}

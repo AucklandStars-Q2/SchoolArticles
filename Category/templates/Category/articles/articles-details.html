@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}
+        <title>{{ object.name }} Details</title> 
+{% endblock %}
+
+{% block content %}
+<button onclick="history.back()">Go Back</button> <br><br>
+    <div class="row">
+        <div class="col">
+            <h1>{{ object.name }}</h1>
+            <hr>
+            <p>Category:
+            Type:
+            Name:
+            Born:
+            Died:
+            Nationality: 
+            Known For:
+            Notable Work:
+            About: 
+            Year: 
+            Medium: 
+            Dimensions: 
+            Location:
+            Designed By: 
+            Developer:</p>
+        </div>
+    </div>
+{% endblock %}

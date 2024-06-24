@@ -4,7 +4,17 @@ School Article List
 {% endblock %}
 
 {% block content %}
-<h1>Articles List</h1>
+
+    <h1>Articles List</h1>
+
+    {% load custom_tags %}
+    {% if user|has_group:"Tutors" %}
+        <a href="/admin/Category/article/"><button>Add/Modify Articles</button></a>
+    {% endif %}
+    {% if user|has_group:"Administrators"  %}
+        <a href="/admin/Category/article/"><button>Add/Modify/Delete Articles</button></a>
+    {% endif %}
+
 <hr>
 
 <form method="get" action="{% url 'articles' %}">

@@ -1,7 +1,9 @@
 {% load static %}
-{% block title %}
-School Articles
-{% endblock %}
+<title>
+    {% block title %}
+    School Articles
+    {% endblock %}
+</title>
 
 <head>
 
@@ -20,7 +22,7 @@ School Articles
                 <h1>School Articles</h1>
                 <p>digital resources for school students. </p>
                 <a href="{% url 'articles' %}" class="btn btn-primary">Go Login</a>
-                <a href="#" class="btn btn-outline-light">Go Register</a>
+                <a href="{% url 'signup' %}" class="btn btn-outline-light">Go Register</a>
             </div>
         </div>
     </div>

@@ -1,17 +1,17 @@
 from django.shortcuts import render
-# from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, DetailView, TemplateView
 from .models import Article
 
 # Create your views here.
-def home(request):
-    return render(request, 'Category/home.html')
+class HomeView(TemplateView):
+    template_name = 'Category/home.html'
 
-class ArticleListView(ListView):
+
+class ArticleListView(LoginRequiredMixin, ListView):
     model = Article
     template_name = 'Category/articles/articles.html'
-
-    # login_url = 'accounts/login/'
+    login_url = 'accounts/login/'
 
     def get_queryset(self):
         queryset = super().get_queryset()
@@ -30,7 +30,7 @@ class ArticleListView(ListView):
         context['current_category'] = self.request.GET.get('category', 'all')
         return context
 
-class ArticleDetailView (DetailView):
+class ArticleDetailView (LoginRequiredMixin, DetailView):
     model = Article
     template_name = 'Category/articles/articles-details.html'
-    # login_url = 'accounts/login/'
+    login_url = 'accounts/login/'

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}
+        {{ object.name }} Details
+{% endblock %}
+
+{% block content %}
+<button class="btn btn-light" onclick="history.back()">Go Back</button> <br><br>
+<div class="row">
+    <div class="col">
+        <h1>{{ object.name }}</h1>
+        <hr>
+        <p>
+            Category: {{ object.category }}<br>
+            Type: {{ object.type }}<br>
+            {% if object.name %}Name: {{ object.name }}<br>{% endif %}
+            {% if object.born %}Born: {{ object.born }}<br>{% endif %}
+            {% if object.died %}Died: {{ object.died }}<br>{% endif %}
+            {% if object.nationality %}Nationality: {{ object.nationality }}<br>{% endif %}
+            {% if object.known_for %}Known For: {{ object.known_for }}<br>{% endif %}
+            {% if object.notable_work %}Notable Work: {{ object.notable_work }}<br>{% endif %}
+            About: {{ object.about }}<br>
+            {% if object.year %}Year: {{ object.year }}<br>{% endif %}
+            {% if object.medium %}Medium: {{ object.medium }}<br>{% endif %}
+            {% if object.dimensions %}Dimensions: {{ object.dimensions }}<br>{% endif %}
+            {% if object.location %}Location: {{ object.location }}<br>{% endif %}
+            {% if object.designed_by %}Designed By: {{ object.designed_by }}<br>{% endif %}
+            {% if object.developer %}Developer: {{ object.developer }}<br>{% endif %}
+        </p>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}
+School Article List
+{% endblock %}
+
+{% block content %}
+<h1>Articles List</h1>
+<hr>
+
+<form method="get" action="{% url 'articles' %}">
+    <div class="row">
+        <div class="col-10">
+            <input class="form-control" type="text" id="articlesearch" name="q" placeholder="Search Articles here" value="{{ request.GET.q }}">
+        </div>
+        <div class="col-2">
+            <button class="btn btn-primary" type="submit">Search</button>
+            <button class="btn btn-danger" onclick="document.getElementById('articlesearch').value = ''" >Clear</button>
+        </div>
+    </div>
+</form>
+
+<br><br>
+
+<form method="get" action="{% url 'articles' %}">
+    <input type="hidden" name="category" id="category-input">
+    <div id="category-container">
+        <button type="submit" class="btn btn-secondary" onclick="document.getElementById('category-input').value = 'all'"> Show all Articles</button>
+        <button type="submit" class="btn btn-secondary" onclick="document.getElementById('category-input').value = 'Art'"> Art Articles</button>
+        <button type="submit" class="btn btn-secondary" onclick="document.getElementById('category-input').value = 'Maths'"> Math Articles</button>
+        <button type="submit" class="btn btn-secondary" onclick="document.getElementById('category-input').value = 'Technology'"> Technology Articles</button>
+    </div>
+</form>
+
+<br>
+<h4>Available Articles:</h4>
+
+<ul class="list-group">
+    {% for article in object_list %}
+    <li class="list-group-item"><a href="{% url 'articles-details' article.id %}">{{ article.category.name }} - {{ article.name }}</a></li>
+    {% empty %}
+    <li class="list-group-item">No articles found.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
+
+<script>
+    function setCategory(category) {
+        document.getElementById('category-input').value = category;
+    }
+</script>

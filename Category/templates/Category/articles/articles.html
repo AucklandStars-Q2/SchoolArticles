@@ -8,20 +8,26 @@ School Article List
 <hr>
 
 <form method="get" action="{% url 'articles' %}">
-    <input type="text" id="articlesearch" name="q" placeholder="Search Articles here" value="{{ request.GET.q }}">
-    <button type="submit">Search</button>
-    <button onclick="document.getElementById('articlesearch').value = ''" >Clear</button>
+    <div class="row">
+        <div class="col-10">
+            <input class="form-control" type="text" id="articlesearch" name="q" placeholder="Search Articles here" value="{{ request.GET.q }}">
+        </div>
+        <div class="col-2">
+            <button class="btn btn-primary" type="submit">Search</button>
+            <button class="btn btn-danger" onclick="document.getElementById('articlesearch').value = ''" >Clear</button>
+        </div>
+    </div>
 </form>
 
-<br><br>
+<br>
 
 <form method="get" action="{% url 'articles' %}">
     <input type="hidden" name="category" id="category-input">
     <div id="category-container">
-        <button type="submit" class="btn" onclick="document.getElementById('category-input').value = 'all'"> Show all Articles</button>
-        <button type="submit" class="btn" onclick="document.getElementById('category-input').value = 'Art'"> Art Articles</button>
-        <button type="submit" class="btn" onclick="document.getElementById('category-input').value = 'Maths'"> Math Articles</button>
-        <button type="submit" class="btn" onclick="document.getElementById('category-input').value = 'Technology'"> Technology Articles</button>
+        <button type="submit" class="btn btn-secondary" onclick="document.getElementById('category-input').value = 'all'"> Show all Articles</button>
+        <button type="submit" class="btn btn-secondary" onclick="document.getElementById('category-input').value = 'Art'"> Art Articles</button>
+        <button type="submit" class="btn btn-secondary" onclick="document.getElementById('category-input').value = 'Maths'"> Math Articles</button>
+        <button type="submit" class="btn btn-secondary" onclick="document.getElementById('category-input').value = 'Technology'"> Technology Articles</button>
     </div>
 </form>
 
@@ -41,4 +47,4 @@ School Article List
     function setCategory(category) {
         document.getElementById('category-input').value = category;
     }
-    </script>
+</script>

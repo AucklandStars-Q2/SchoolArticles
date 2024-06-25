@@ -21,10 +21,10 @@ School Article List
 
     {% load custom_tags %}
     {% if user|has_group:"Tutors" %}
-        <a href="{% url 'articles-create' %}"><input type="submit" class="add-button" value="Add Article">
+        <a href="{% url 'articles-create' %}"><input type="submit" class="add-button" value="Add Article"></a>
     {% endif %}
     {% if user|has_group:"Administrators"  %}
-        <a href="{% url 'articles-create' %}"><input type="submit" class="add-button" value="Add Article">
+        <a href="{% url 'articles-create' %}"><input type="submit" class="add-button" value="Add Article"></a>
     {% endif %}
 
 <hr>

@@ -4,11 +4,39 @@ Sign Up for School Articles
 {% endblock %}
 
 {% block content %}
-<button onclick="history.back()">Go Back</button> <br><br>
+
+<style>
+    .signup-button {
+      background-color: #293E5D;
+      color: white;
+      border-radius: 10px;
+      padding: 5px;
+      width: 10%;
+    }
+  
+    .goback-button {
+      background-color: #293E5D;
+      color: white;
+      border-radius: 10px;
+      padding: 5px;
+      width: 10%;
+    }
+  
+    .button-container {
+      display: flex;
+    }
+  
+    .button-container button {
+      margin-right: 10px;
+    }
+  </style>
+
+
+<button onclick="history.back()" class="goback-button">Go Back</button> <br><br>
 <h1 >Sign Up</h1>
 <form method="post" >
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit"> Sign Up</button>
+    <button type="submit" class="signup-button"> Sign Up</button>
 </form> 
 {% endblock %}

@@ -59,13 +59,19 @@ School Article List
 <ul class="list-group">
     {% for article in object_list %}
     <li class="list-group-item">
+        <div class="row">
+        <div class="col-8">
         <a href="{% url 'articles-details' article.id %}">{{ article.category.name }} - {{ article.name }}</a>
+        </div>
+        <div class="col-4 text-end">
         {% if user|has_group:"Tutors" or user|has_group:"Administrators" %}
             <a href="{% url 'articles-update' article.id %}">Update</a>
             {% if user|has_group:"Administrators" %}
                 <a href="{% url 'articles-delete' article.id %}">Delete</a>
             {% endif %}
         {% endif %}
+        </div>
+    </div>
     </li>
     {% empty %}
     <li class="list-group-item">No articles found.</li>

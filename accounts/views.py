@@ -8,7 +8,7 @@ from django.contrib.auth import logout
 class SignUpView(CreateView):
     form_class = UserCreationForm
     template_name = 'registration/signup.html'
-    success_url = reverse_lazy('/')
+    success_url = reverse_lazy('home')
 
 class CustomLogoutView(TemplateView):
     template_name = 'registration/logout.html'

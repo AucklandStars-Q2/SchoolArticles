@@ -1,3 +1,5 @@
+GitHub link: https://github.com/AucklandStars-Q2/SchoolArticles
+
 Superuser:
 Username: AdminAS
 Password: 4l55?W3"nX
